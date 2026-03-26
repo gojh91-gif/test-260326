@@ -1,0 +1,38 @@
+name: test_workflow
+on:
+  push:
+    branches: ["main"]
+jobs:
+  change:
+      name: "ServiceNow DevOps Change"
+      runs-on: ubuntu-latest
+      steps:
+        - name: test ServiceNow Change
+          id: test_servicenow_change
+          uses: ServiceNow/servicenow-devops-change@v6.1.0
+          with:
+            # Devops Integration Token
+            devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_TOKEN }}
+            # ServiceNow Instance URL
+            instance-url: ${{ secrets.SN_INSTANCE_URL }}
+            # Orchestration Tool Id
+            tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
+            # GitHub Context
+            context-github: ${{ toJSON(github) }}
+            # Display Name of the Job
+            job-name: "test ServiceNow DevOps Change"
+            # change-request
+            change-request: '{"setCloseCode":"true","attributes":{
+                                "short_description":"Public Cloud 운영관리_AP 변경",
+                                "description":"Public Cloud 운영관리_AP 변경",
+                                "chg_model": "adffaa9e4370211072b7f6be5bb8f2ed"}}'
+            deployment-gate: '{"environment":"test-git-environment","jobName":"Deploy"}'
+
+  deploy:
+    name: "Deploy"
+    environment: test-git-environment
+    needs: change
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run deployment scripts
+        run: echo 'Deployment step in progress...'
