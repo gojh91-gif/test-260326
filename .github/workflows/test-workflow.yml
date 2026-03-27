@@ -22,9 +22,18 @@ jobs:
             # Display Name of the Job
             job-name: "test ServiceNow DevOps Change"
             # change-request
-            change-request: '{"setCloseCode":"true","attributes":{
-                                "short_description":"Public Cloud 운영관리_AP 변경",
-                                "description":"Public Cloud 운영관리_AP 변경"}}'
+            change-request: '{
+              "setCloseCode": "true",
+              "attributes": {
+                "short_description": "Public Cloud 운영관리_AP 변경",
+                "description": "Public Cloud 운영관리_AP 변경",
+                "category": "Software",
+                "priority": "3",
+                "risk": "4",
+                "impact": "3"}}'
+            # change-request: '{"setCloseCode":"true","attributes":{
+            #                     "short_description":"Public Cloud 운영관리_AP 변경",
+            #                     "description":"Public Cloud 운영관리_AP 변경"}}'
             # change-request: '{"attributes":{
             #                     "short_description":"Public Cloud 운영관리_AP 변경",
             #                     "description":"Public Cloud 운영관리_AP 변경"}}'
