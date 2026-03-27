@@ -24,8 +24,7 @@ jobs:
             # change-request
             change-request: '{"setCloseCode":"true","attributes":{
                                 "short_description":"Public Cloud 운영관리_AP 변경",
-                                "description":"Public Cloud 운영관리_AP 변경",
-                                "chg_model": "adffaa9e4370211072b7f6be5bb8f2ed"}}'
+                                "description":"Public Cloud 운영관리_AP 변경"}}'
             deployment-gate: '{"environment":"test-git-environment","jobName":"Deploy"}'
 
   deploy:
