@@ -24,7 +24,7 @@ jobs:
             # change-request
             change-request: '{
               "setCloseCode": "true",
-              "attributes": {
+              "attributes": {"chg_model":{"name":"DevOps"},
                 "short_description": "Public Cloud 운영관리_AP 변경",
                 "description": "Public Cloud 운영관리_AP 변경",
                 "category": "Software",
