@@ -21,6 +21,11 @@ jobs:
             context-github: ${{ toJSON(github) }}
             # Display Name of the Job
             job-name: "test ServiceNow DevOps Change"
+            interval: '100'
+            timeout: '3600'
+            changeCreationTimeOut: '3600'
+            abortOnChangeCreationFailure: true
+            abortOnChangeStepTimeout: true
             # change-request
             # change-request: '{
             #   "setCloseCode": "true",
